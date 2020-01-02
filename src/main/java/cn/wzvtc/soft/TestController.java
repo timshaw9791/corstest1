@@ -2,20 +2,22 @@ package cn.wzvtc.soft;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Example;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @CrossOrigin(origins = {"http://127.0.0.1:5500"},allowCredentials = "true")
 @RestController
 public class TestController {
+
 
 
     @Autowired
@@ -24,6 +26,7 @@ public class TestController {
     @RequestMapping(value = "/addlvli")
     public void addlvli(String lvli) {
         Lvli lvli1=new Lvli("1202",lvli);
+
         this.lvliRepository.save(lvli1);
     }
 
